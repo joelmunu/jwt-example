@@ -1,6 +1,5 @@
 package com.jwt.jwtexample.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -40,7 +39,7 @@ public class ApplicationConfig {
         return new BCryptPasswordEncoder();
     }
 
-    
+    @Bean
     public UserDetailsService userDetailService() {
         return username -> userRepository.findByUsername(username)
         .orElseThrow(() -> new UsernameNotFoundException("User not Found"));
